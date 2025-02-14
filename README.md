@@ -21,30 +21,30 @@ docker run -it --net=host ros:noetic-ros-base-focal bash
 
 Inside the container:
 
-# Install a demo talker (if not installed)
+## Install a demo talker (if not installed)
 apt-get update && apt-get install -y ros-noetic-rospy-tutorials
 
-# Source ROS 1 and run roscore
+## Source ROS 1 and run roscore
 source /opt/ros/noetic/setup.bash
 roscore &   # or use another tab/shell
 
-# In a second tab, run a talker publishing on /chatter
+## In a second tab, run a talker publishing on /chatter
 source /opt/ros/noetic/setup.bash
 rosrun rospy_tutorials talker
 
 On the host (Ubuntu 22.04 with ROS 2):
 
-# Point to the container’s roscore on localhost:11311
+## Point to the container’s roscore on localhost:11311
 export ROS_MASTER_URI=http://localhost:11311
 
-# Source your ROS 2 environment
+## Source your ROS 2 environment
 source /opt/ros/humble/setup.bash
 
-# Source the ros1_bridge overlay (if you have it locally)
+## Source the ros1_bridge overlay (if you have it locally)
 cd ros-humble-ros1-bridge
 source install/local_setup.bash
 
-# Run the dynamic bridge
+## Run the dynamic bridge
 ros2 run ros1_bridge dynamic_bridge
 
 In another host terminal, you can check ROS 2 topics:
